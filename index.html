@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aether Design is an independent creative studio crafting luxury editorial direction, spatial storytelling, and digital flagships for furniture and interior spaces.">
+<title>Aether Design — Visuals with Intention</title>
+<style>
+  :root {
+    --cream: #f4ede3;
+    --sand: #e8dccb;
+    --walnut: #5a3e2b;
+    --ink: #2b211a;
+    --muted: #7a6a5c;
+    --line: rgba(43, 33, 26, 0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  img { display: block; width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  section { padding: 90px 6vw; }
+  h1, h2, h3 { font-weight: 400; line-height: 1.15; }
+  h2 { font-size: clamp(1.9rem, 4vw, 3rem); margin-bottom: 18px; }
+  h3 { font-size: 1.6rem; margin-bottom: 10px; }
+  em { font-style: italic; color: var(--walnut); }
+  .label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 6vw;
+    background: rgba(244, 237, 227, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { font-size: 1.2rem; letter-spacing: 0.08em; }
+  nav a {
+    margin-left: 26px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  nav a:hover { color: var(--walnut); }
+
+  /* Hero */
+  .hero {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: center;
+    min-height: 80vh;
+  }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 5rem); margin: 18px 0; }
+  .hero p { max-width: 460px; color: var(--muted); margin-bottom: 30px; }
+  .btn {
+    display: inline-block; padding: 14px 26px; margin-right: 12px;
+    font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--ink);
+  }
+  .btn.solid { background: var(--ink); color: var(--cream); }
+  .btn:hover { opacity: 0.85; }
+  .hero img { aspect-ratio: 4 / 5; object-fit: cover; }
+
+  /* Selected work */
+  .work { background: var(--sand); }
+  .work-intro { max-width: 680px; margin-bottom: 60px; color: var(--muted); }
+  .project { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 90px; }
+  .project:nth-child(even) .project-img { order: 2; }
+  .project-img img { border: 1px solid var(--line); }
+  .project-text p { color: var(--muted); margin-bottom: 18px; }
+  .caption { font-family: Arial, Helvetica, sans-serif; font-size: 0.78rem; color: var(--muted); margin-top: 10px; }
+  .link { font-family: Arial, Helvetica, sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid var(--ink); }
+
+  /* Studio */
+  .philo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 50px; }
+  .philo-grid div { border-top: 1px solid var(--line); padding-top: 22px; }
+  .philo-grid p { color: var(--muted); }
+  .quote { font-size: clamp(1.6rem, 3.5vw, 2.4rem); max-width: 900px; margin-bottom: 24px; }
+
+  /* Services */
+  .services { background: var(--walnut); color: var(--cream); }
+  .services h2 em { color: #e8dccb; }
+  .services .label { color: #cdb99f; }
+  .services-intro { max-width: 640px; opacity: 0.85; margin-bottom: 50px; }
+  .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .service-grid div { border-top: 1px solid rgba(244, 237, 227, 0.3); padding-top: 20px; }
+  .service-grid p { opacity: 0.8; font-size: 0.95rem; }
+  .service-grid .num { font-family: Arial, sans-serif; font-size: 0.8rem; color: #cdb99f; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 40px; }
+  .contact-grid p { margin-top: 6px; }
+  .copy-btn {
+    margin-top: 12px; padding: 10px 18px; cursor: pointer;
+    background: var(--ink); color: var(--cream); border: none;
+    font-family: Arial, sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  footer {
+    padding: 40px 6vw; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+    font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    .hero, .project, .contact-grid { grid-template-columns: 1fr; }
+    .project:nth-child(even) .project-img { order: 0; }
+    .philo-grid, .service-grid { grid-template-columns: 1fr 1fr; }
+    nav a { margin-left: 14px; }
+  }
+  @media (max-width: 560px) {
+    .philo-grid, .service-grid { grid-template-columns: 1fr; }
+    header { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <a class="brand" href="#top">Aether <em>Design</em></a>
+  <nav>
+    <a href="#selected-work">Selected Work</a>
+    <a href="#studio">Studio</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Let's Talk</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="label">Aether Design · Editorial Practice · Spatial &amp; Visual Concepts</p>
+    <h1>Visuals with <em>intention.</em></h1>
+    <p>An independent creative studio shaping calm, art-directed campaign visuals, product advertisements, social stories, and visual direction for furniture and interior spaces.</p>
+    <a class="btn solid" href="#selected-work">Explore selected work →</a>
+    <a class="btn" href="#contact">Let's Talk</a>
+  </div>
+  <div>
+    <img src="1000090144_3.jpg" alt="Monochrome living room with arched floor lamp, dark coffee table and textured seating">
+    <p class="caption">Relief Study · Monochrome</p>
+  </div>
+</section>
+
+<section class="work" id="selected-work">
+  <p class="label">Selected Work · Independent Concepts</p>
+  <h2 style="margin-top:12px;">Four spatial studies in <em>form, light &amp; stillness.</em></h2>
+  <p class="work-intro">Self-initiated furniture and interior advertising concepts developed inside Aether Design to explore editorial pacing, proportion, and material mood. Independent concept works — not commissioned client work.</p>
+
+  <!-- Project 01 -->
+  <div class="project">
+    <div class="project-img">
+      <img src="1000090143_3.jpg" alt="Timber dining table with upholstered chairs beneath a round pendant light">
+      <p class="caption">Plate 01A · Independent Concept</p>
+    </div>
+    <div class="project-text">
+      <p class="label">Project 01 · Dining / Campaign Concept</p>
+      <h3>Made for Moments</h3>
+      <p>An intimate dining concept pairing solid timber joinery, textured upholstery, and soft afternoon light to frame unhurried gatherings.</p>
+      <a class="link" href="#selected-work">Inspect Plate → Self-Initiated Concept</a>
+    </div>
+  </div>
+
+  <!-- Project 02 -->
+  <div class="project">
+    <div class="project-img">
+      <img src="1000090142_3.jpg" alt="Sunlit living room with cream sofa, walnut coffee table and arched shelving">
+      <p class="caption">Plate 02A · Independent Concept</p>
+    </div>
+    <div class="project-text">
+      <p class="label">Project 02 · Living / Product Campaign</p>
+      <h3>Design Your Everyday</h3>
+      <p>A multi-frame living room exploration examining how tactile textiles, rounded silhouettes, and natural light rhythm support everyday life.</p>
+      <a class="link" href="#selected-work">Inspect Suite → Self-Initiated Concept</a>
+    </div>
+  </div>
+
+  <!-- Project 03 -->
+  <div class="project">
+    <div class="project-img">
+      <img src="1000090154_3.jpg" alt="Curved cream sofa and walnut table with a leather armchair">
+      <p class="caption">Plate 03A · Independent Concept</p>
+    </div>
+    <div class="project-text">
+      <p class="label">Project 03 · Furniture / Editorial Visual</p>
+      <h3>Quiet Statement</h3>
+      <p>An editorial furniture study focused on quiet contrast — balancing dark timber, matte metal, and soft tonal grain without visual noise.</p>
+      <a class="link" href="#selected-work">Inspect Plate → Self-Initiated Concept</a>
+    </div>
+  </div>
+
+  <!-- Project 04 -->
+  <div class="project">
+    <div class="project-img">
+      <img src="1000090155_3.jpg" alt="Living room with arched wall, cream sofa and walnut coffee table">
+      <p class="caption">Plate 04A · Independent Concept</p>
+    </div>
+    <div class="project-text">
+      <p class="label">Project 04 · Interior / Campaign Concept</p>
+      <h3>Your Home, Reimagined</h3>
+      <p>A framed spatial composition uniting architectural arches, warm mineral tones, and measured whitespace to evoke calm domesticity.</p>
+      <a class="link" href="#selected-work">Inspect Plate → Self-Initiated Concept</a>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+  <p class="label">Studio Philosophy · Aether Design</p>
+  <h2 class="quote" style="margin-top:14px;">"Good design doesn't ask for attention. <em>It earns it."</em></h2>
+  <p style="max-width:680px; color:var(--muted);">Aether Design approaches every frame with quiet discipline. Rather than crowding spaces with spectacle, we build visual storytelling around clear hierarchy, natural light, honest materiality, and deliberate restraint.</p>
+  <div class="philo-grid">
+    <div>
+      <p class="label">01 · Intention</p>
+      <h3 style="margin-top:8px;">Purposeful Form</h3>
+      <p>Every headline, proportion, and pause serves a clear editorial role.</p>
+    </div>
+    <div>
+      <p class="label">02 · Detail</p>
+      <h3 style="margin-top:8px;">Measured Craft</h3>
+      <p>Fine typographic spacing, quiet borders, and balanced composition.</p>
+    </div>
+    <div>
+      <p class="label">03 · Story</p>
+      <h3 style="margin-top:8px;">Spatial Mood</h3>
+      <p>Visual narratives that let furniture and interiors speak naturally.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <p class="label">Services · Creative Disciplines</p>
+  <h2 style="margin-top:12px;">Focused direction for <em>considered brands.</em></h2>
+  <p class="services-intro">Four core disciplines tailored for furniture makers, interior studios, and design-led houses seeking a refined visual presence.</p>
+  <div class="service-grid">
+    <div>
+      <p class="num">01</p>
+      <h3>Campaign Creatives</h3>
+      <p>Cohesive editorial key visuals and seasonal campaign concepts that give collections a clear point of view.</p>
+    </div>
+    <div>
+      <p class="num">02</p>
+      <h3>Product Advertisements</h3>
+      <p>Composed, high-craft promotional visuals for furniture and interior pieces that highlight form, finish, and atmosphere.</p>
+    </div>
+    <div>
+      <p class="num">03</p>
+      <h3>Social Media Design</h3>
+      <p>Thoughtfully sequenced social layouts and visual stories that read like an ongoing monograph across feeds and carousels.</p>
+    </div>
+    <div>
+      <p class="num">04</p>
+      <h3>Visual Direction</h3>
+      <p>End-to-end aesthetic guidance covering palette, typography, framing, and art direction so every touchpoint feels unified.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <p class="label">Contact · Inquiries &amp; Collaborations</p>
+  <h2 style="margin-top:12px;">Let's make it <em>matter.</em></h2>
+  <p style="max-width:640px; color:var(--muted);">Available for select collaborations in campaign creatives, product advertisements, social media design, and visual direction.</p>
+  <div class="contact-grid">
+    <div>
+      <p class="label">Email</p>
+      <p><a href="mailto:trollcoretrial@gmail.com">trollcoretrial@gmail.com</a></p>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('trollcoretrial@gmail.com'); this.textContent='Copied';">Copy Email Address</button>
+    </div>
+    <div>
+      <p class="label">Instagram</p>
+      <p><a href="https://www.instagram.com/aetherweb.studio/" target="_blank" rel="noopener">instagram.com/aetherweb.studio →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <strong style="font-weight:400; font-size:1rem; color:var(--ink);">Aether Design</strong><br>
+    Visuals with Intention
+  </div>
+  <div>
+    <a href="#selected-work">Selected Work</a> &nbsp;·&nbsp;
+    <a href="#studio">Studio</a> &nbsp;·&nbsp;
+    <a href="#services">Services</a> &nbsp;·&nbsp;
+    <a href="#contact">Let's Talk</a> &nbsp;·&nbsp;
+    <a href="https://www.instagram.com/aetherweb.studio/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div>
+    © 2026 Aether Design. All rights reserved.<br>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
